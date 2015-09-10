@@ -34,17 +34,18 @@
 	        <th>Cpf</th>
 	        <th>Endereço</th>
 	        <th>Idade</th>
-	        
+	        <th>Editar</th>
 	    </tr>
 	    
 	    <?php
 			foreach ($clientes as $key => $cliente) {
 				echo "<tr>";
 				echo "<td>" .$key ."</td>";
-				echo "<td>" .$cliente->getNome() ."</td>";
-				echo "<td>" .$cliente->getCpf() ."</td>";
-				echo "<td>" .$cliente->getEndereco() ."</td>";
-				echo "<td>" .$cliente->getIdade() ."</td>";
+				echo "<td onclick='show(".$key.")'>" .$cliente->getNome() ."</td>";
+				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getCpf() ."</td>";
+				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getEndereco() ."</td>";
+				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getIdade() ."</td>";
+				echo "<td class='cliente".$key."' style='display:none;'><a onclick='hide(".$key.")' href='javascript:void(0)'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
 				echo "</tr>";
 			}
 		?>
@@ -55,7 +56,20 @@
 </body>
 </html>
 
-
+<script type="text/javascript">
+function show(id) {
+	var x = document.getElementsByClassName('cliente'+id);
+	for(i=0; i<x.length; i++){
+		x[i].removeAttribute("style");
+	}
+}
+function hide(id) {
+	var x = document.getElementsByClassName('cliente'+id);
+	for(i=0; i<x.length; i++){
+		x[i].style.display = 'none';
+	}
+}
+</script>
 	
 	
 	
