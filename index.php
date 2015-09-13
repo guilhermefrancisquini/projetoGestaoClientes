@@ -1,18 +1,23 @@
 <?php
-	
-	require_once 'cliente.php';
+	define('CLASS_DIR', 'src/');
+	set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
+	//spl_autoload_extensions(".php");
+	spl_autoload_register();
+	//require_once 'Vendor\Cliente\Types\ClienteType.php';
+
+    //use Vendor\Cliente\Types;
 
 	$Clientes = array();
-	$clientes[] = new Cliente("Amanda", 14578996323, "Rua da sinceridade", 19);
-	$clientes[] = new Cliente("Cida", 78945685996, 	"Rua da paixao", 49);
-	$clientes[] = new Cliente("Cris", 14578912365, 	"Rua da alegria", 45);
-	$clientes[] = new Cliente("Gerson", 36985274178, "Rua Pedro", 60);
-	$clientes[] = new Cliente("Guilherme", 78963258912, "Rua General", 21);
-	$clientes[] = new Cliente("Kleber",	12365478996, "Rua Cabo", 26);
-	$clientes[] = new Cliente("Maria", 	32165498785, "Rua Benedito", 19);
-	$clientes[] = new Cliente("Pamela", 21365489821, "Rua do polio", 23);
-	$clientes[] = new Cliente("Rafael", 47895289365, "Rua do toro", 21);
-	$clientes[] = new Cliente("Raquel", 58741289362, "Rua de Maria", 22);	
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Amanda", "fisico", 14578996323, "Rua da sinceridade", 19);
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Cida", "juridico", 78945685996, "Rua da paixao", 49, "Rua Pedro Henrique");
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Cris", "fisico", 14578912365, 	"Rua da alegria", 45);
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Gerson", "juridico", 36985274178, "Rua Pedro", 60);
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Guilherme", "fisico", 78963258912, "Rua General", 21, "Rua Padre João");
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Kleber", "juridico",	12365478996, "Rua Cabo", 26);
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Maria", "fisico", 32165498785, "Rua Benedito", 19);
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Pamela", "juridico",21365489821, "Rua do polio", 23);
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Rafael", "fisico", 47895289365, "Rua do toro", 21);
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Raquel", "juridico", 58741289362, "Rua de Maria", 22, "Rua Joaquim");
 
 ?>
 <!DOCTYPE html>
@@ -31,25 +36,35 @@
 	  	<tr>
 	        <th>#</th>
 	        <th>Nome</th>
-	        <th>Cpf</th>
+            <th>Tipo</th>
+	        <th>Serie</th>
 	        <th>Endereço</th>
 	        <th>Idade</th>
+            <th>Endereço Cobrança</th>
 	        <th>Editar</th>
 	    </tr>
-	    
+
 	    <?php
 			foreach ($clientes as $key => $cliente) {
 				echo "<tr>";
 				echo "<td>" .$key ."</td>";
 				echo "<td onclick='show(".$key.")'>" .$cliente->getNome() ."</td>";
-				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getCpf() ."</td>";
+                echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getTipo() ."</td>";
+                if($cliente->getTipo() == "fisico"){
+                    echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getCpf() ."</td>";
+                }else
+                {
+                    echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getCnpj() ."</td>";
+                }
+
 				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getEndereco() ."</td>";
 				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getIdade() ."</td>";
+                echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getEnderecoCobrar() ."</td>";
 				echo "<td class='cliente".$key."' style='display:none;'><a onclick='hide(".$key.")' href='javascript:void(0)'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
 				echo "</tr>";
 			}
 		?>
-		
+
 	  </table>
 	</div>
 </div>
