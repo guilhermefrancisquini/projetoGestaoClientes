@@ -8,16 +8,16 @@
     //use Vendor\Cliente\Types;
 
 	$Clientes = array();
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Amanda", "fisico", 14578996323, "Rua da sinceridade", 19);
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Cida", "juridico", 78945685996, "Rua da paixao", 49, "Rua Pedro Henrique");
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Cris", "fisico", 14578912365, 	"Rua da alegria", 45);
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Gerson", "juridico", 36985274178, "Rua Pedro", 60);
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Guilherme", "fisico", 78963258912, "Rua General", 21, "Rua Padre João");
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Kleber", "juridico",	12365478996, "Rua Cabo", 26);
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Maria", "fisico", 32165498785, "Rua Benedito", 19);
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Pamela", "juridico",21365489821, "Rua do polio", 23);
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Rafael", "fisico", 47895289365, "Rua do toro", 21);
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Raquel", "juridico", 58741289362, "Rua de Maria", 22, "Rua Joaquim");
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Amanda", "fisico", 14578996323, 1, "Rua da sinceridade", 19);
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Cida", "juridico", 78945685996, 3, "Rua da paixao", 49, "Rua Pedro Henrique");
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Cris", "fisico", 14578912365, 	5, "Rua da alegria", 45);
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Gerson", "juridico", 36985274178, 1,"Rua Pedro", 60);
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Guilherme", "fisico", 78963258912, 2, "Rua General", 21, "Rua Padre João");
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Kleber", "juridico",	12365478996, 0, "Rua Cabo", 26);
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Maria", "fisico", 32165498785, 2,"Rua Benedito", 19);
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Pamela", "juridico",21365489821, 4,"Rua do polio", 23);
+	$clientes[] = new Vendor\Cliente\Types\ClienteType("Rafael", "fisico", 47895289365, 3,"Rua do toro", 21);
+	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Raquel", "juridico", 58741289362, 2,"Rua de Maria", 22, "Rua Joaquim");
 
 ?>
 <!DOCTYPE html>
@@ -38,6 +38,7 @@
 	        <th>Nome</th>
             <th>Tipo</th>
 	        <th>Serie</th>
+            <th>Estrelas</th>
 	        <th>Endereço</th>
 	        <th>Idade</th>
             <th>Endereço Cobrança</th>
@@ -56,7 +57,7 @@
                 {
                     echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getCnpj() ."</td>";
                 }
-
+                echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getEstrelas() ."</td>";
 				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getEndereco() ."</td>";
 				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getIdade() ."</td>";
                 echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getEnderecoCobrar() ."</td>";
@@ -85,7 +86,3 @@ function hide(id) {
 	}
 }
 </script>
-	
-	
-	
-	

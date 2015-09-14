@@ -16,6 +16,7 @@ class ClienteAbstract
     protected $enderecoCobrar;
     protected $idade;
     protected $tipo;
+    protected $estrelas;
 
     public function setNome($nome)
     {
@@ -23,7 +24,8 @@ class ClienteAbstract
         return $this;
     }
 
-    public function getNome(){
+    public function getNome()
+    {
         return $this->nome;
     }
 
@@ -33,7 +35,8 @@ class ClienteAbstract
         return $this;
     }
 
-    public function getEndereco(){
+    public function getEndereco()
+    {
         return $this->endereco;
     }
 
@@ -43,15 +46,29 @@ class ClienteAbstract
         return $this;
     }
 
-    public function getIdade(){
+    public function getIdade()
+    {
         return $this->idade;
     }
 
-    public function getTipo(){
+    public function getTipo()
+    {
         return $this->tipo;
     }
 
-    public function getEnderecoCobrar(){
+    public function getEnderecoCobrar()
+    {
         return $this->enderecoCobrar;
+    }
+
+    public function setEstrelas($estrelas)
+    {
+        $this->estrelas = $estrelas;
+        return $this;
+    }
+
+    public function getEstrelas()
+    {
+        return $this->estrelas;
     }
 }

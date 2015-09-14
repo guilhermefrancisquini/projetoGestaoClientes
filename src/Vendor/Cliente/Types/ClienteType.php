@@ -9,11 +9,12 @@ class ClienteType extends ClienteAbstract implements ClienteInterface
 {
 	protected $cpf;
 
-	function __construct($nome, $tipo, $cpf, $endereco, $idade, $enderecoCobrar="")
+	function __construct($nome, $tipo, $cpf, $estrelas, $endereco, $idade, $enderecoCobrar="")
 	{
 		$this->setNome($nome);
 		$this->tipoCliente($tipo);
 		$this->setCpf($cpf);
+		$this->setEstrelas($estrelas);
 		$this->setEndereco($endereco);
 		$this->setIdade($idade);
 		$this->enderecoCobranca($enderecoCobrar);

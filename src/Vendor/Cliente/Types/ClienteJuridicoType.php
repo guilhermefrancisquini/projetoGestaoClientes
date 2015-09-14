@@ -14,11 +14,12 @@ use Vendor\Cliente\Util\ClienteInterface;
 class ClienteJuridicoType extends ClienteAbstract implements ClienteInterface
 {
     protected $cnpj;
-    function __construct($nome, $tipo, $cnpj, $endereco, $idade, $enderecoCobrar="")
+    function __construct($nome, $tipo, $cnpj, $estrelas, $endereco, $idade, $enderecoCobrar="")
     {
         $this->setNome($nome);
         $this->tipoCliente($tipo);
         $this->setCnpj($cnpj);
+        $this->setEstrelas($estrelas);
         $this->setEndereco($endereco);
         $this->setIdade($idade);
         $this->enderecoCobranca($enderecoCobrar);
