@@ -3,21 +3,21 @@
 	set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
 	//spl_autoload_extensions(".php");
 	spl_autoload_register();
-	//require_once 'Vendor\Cliente\Types\ClienteType.php';
 
-    //use Vendor\Cliente\Types;
+    use Vendor\Cliente\Types\ClienteType;
+	use Vendor\Cliente\Types\ClienteJuridicoType;
 
 	$Clientes = array();
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Amanda", "fisico", 14578996323, 1, "Rua da sinceridade", 19);
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Cida", "juridico", 78945685996, 3, "Rua da paixao", 49, "Rua Pedro Henrique");
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Cris", "fisico", 14578912365, 	5, "Rua da alegria", 45);
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Gerson", "juridico", 36985274178, 1,"Rua Pedro", 60);
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Guilherme", "fisico", 78963258912, 2, "Rua General", 21, "Rua Padre João");
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Kleber", "juridico",	12365478996, 0, "Rua Cabo", 26);
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Maria", "fisico", 32165498785, 2,"Rua Benedito", 19);
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Pamela", "juridico",21365489821, 4,"Rua do polio", 23);
-	$clientes[] = new Vendor\Cliente\Types\ClienteType("Rafael", "fisico", 47895289365, 3,"Rua do toro", 21);
-	$clientes[] = new Vendor\Cliente\Types\ClienteJuridicoType("Raquel", "juridico", 58741289362, 2,"Rua de Maria", 22, "Rua Joaquim");
+	$clientes[] = new ClienteType("Amanda", "fisico", 14578996323, 1, "Rua da sinceridade", 19);
+	$clientes[] = new ClienteJuridicoType("Cida", "juridico", 78945685996, 3, "Rua da paixao", 49, "Rua Pedro Henrique");
+	$clientes[] = new ClienteType("Cris", "fisico", 14578912365, 	5, "Rua da alegria", 45);
+	$clientes[] = new ClienteJuridicoType("Gerson", "juridico", 36985274178, 1,"Rua Pedro", 60);
+	$clientes[] = new ClienteType("Guilherme", "fisico", 78963258912, 2, "Rua General", 21, "Rua Padre João");
+	$clientes[] = new ClienteJuridicoType("Kleber", "juridico",	12365478996, 0, "Rua Cabo", 26);
+	$clientes[] = new ClienteType("Maria", "fisico", 32165498785, 2,"Rua Benedito", 19);
+	$clientes[] = new ClienteJuridicoType("Pamela", "juridico",21365489821, 4,"Rua do polio", 23);
+	$clientes[] = new ClienteType("Rafael", "fisico", 47895289365, 3,"Rua do toro", 21);
+	$clientes[] = new ClienteJuridicoType("Raquel", "juridico", 58741289362, 2,"Rua de Maria", 22, "Rua Joaquim");
 
 ?>
 <!DOCTYPE html>
@@ -52,12 +52,12 @@
 				echo "<td onclick='show(".$key.")'>" .$cliente->getNome() ."</td>";
                 echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getTipo() ."</td>";
                 if($cliente->getTipo() == "fisico"){
-                    echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getCpf() ."</td>";
+                    echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getCPF() ."</td>";
                 }else
                 {
-                    echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getCnpj() ."</td>";
+                    echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getCNPJ() ."</td>";
                 }
-                echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getEstrelas() ."</td>";
+                echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getGrauImportancia() ."</td>";
 				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getEndereco() ."</td>";
 				echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getIdade() ."</td>";
                 echo "<td class='cliente".$key."' style='display:none;'>" .$cliente->getEnderecoCobrar() ."</td>";

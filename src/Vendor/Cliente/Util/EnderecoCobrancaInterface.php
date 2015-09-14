@@ -2,15 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Guilherme
- * Date: 13/09/2015
- * Time: 12:32
+ * Date: 14/09/2015
+ * Time: 18:39
  */
 
 namespace Vendor\Cliente\Util;
 
 
-interface ClienteInterface
+interface EnderecoCobrancaInterface
 {
-    public function tipoCliente($tipo);
     public function enderecoCobranca($endereco);
 }

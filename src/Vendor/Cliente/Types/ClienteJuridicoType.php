@@ -9,39 +9,31 @@
 namespace Vendor\Cliente\Types;
 
 use Vendor\Cliente\ClienteAbstract;
-use Vendor\Cliente\Util\ClienteInterface;
+use Vendor\Cliente\Util\PJInterface;
 
-class ClienteJuridicoType extends ClienteAbstract implements ClienteInterface
+class ClienteJuridicoType extends ClienteAbstract implements PJInterface
 {
     protected $cnpj;
-    function __construct($nome, $tipo, $cnpj, $estrelas, $endereco, $idade, $enderecoCobrar="")
+    
+    function __construct($nome, $tipo, $cnpj, $grauImportancia, $endereco, $idade, $enderecoCobrar="")
     {
         $this->setNome($nome);
         $this->tipoCliente($tipo);
         $this->setCnpj($cnpj);
-        $this->setEstrelas($estrelas);
+        $this->grauImportancia($grauImportancia);
         $this->setEndereco($endereco);
         $this->setIdade($idade);
         $this->enderecoCobranca($enderecoCobrar);
     }
 
-    public function setCnpj($cnpj)
+    public function setCNPJ($cnpj)
     {
         $this->cnpj = $cnpj;
         return $this;
     }
 
-    public function getCnpj(){
+    public function getCNPJ(){
         return $this->cnpj;
     }
 
-    public function tipoCliente($tipo){
-        $this->tipo = $tipo;
-        return $this->tipo;
-    }
-
-    public function enderecoCobranca($endereco){
-        $this->enderecoCobrar = $endereco;
-        return $this->enderecoCobrar;
-    }
 }

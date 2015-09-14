@@ -3,39 +3,30 @@
 namespace Vendor\Cliente\Types;
 
 use Vendor\Cliente\ClienteAbstract;
-use Vendor\Cliente\Util\ClienteInterface;
+use Vendor\Cliente\Util\PFInterface;
 
-class ClienteType extends ClienteAbstract implements ClienteInterface
+class ClienteType extends ClienteAbstract implements PFInterface
 {
 	protected $cpf;
 
-	function __construct($nome, $tipo, $cpf, $estrelas, $endereco, $idade, $enderecoCobrar="")
+	function __construct($nome, $tipo, $cpf, $grauImportancia, $endereco, $idade, $enderecoCobrar="")
 	{
 		$this->setNome($nome);
 		$this->tipoCliente($tipo);
 		$this->setCpf($cpf);
-		$this->setEstrelas($estrelas);
+		$this->grauImportancia($grauImportancia);
 		$this->setEndereco($endereco);
 		$this->setIdade($idade);
 		$this->enderecoCobranca($enderecoCobrar);
 	}
 
-	public function setCpf($cpf)
+	public function setCPF($cpf)
 	{
 		$this->cpf = $cpf;
 		return $this;
 	}
 
-	public function getCpf(){
+	public function getCPF(){
 		return $this->cpf;
-	}
-
-	public function tipoCliente($tipo){
-		$this->tipo = $tipo;
-		return $this->tipo;
-	}
-	public function enderecoCobranca($endereco){
-		$this->enderecoCobrar = $endereco;
-		return $this->enderecoCobrar;
 	}
 }

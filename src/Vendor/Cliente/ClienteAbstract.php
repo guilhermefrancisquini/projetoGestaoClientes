@@ -7,16 +7,17 @@
  */
 
 namespace Vendor\Cliente;
+use Vendor\Cliente\Util\EnderecoCobrancaInterface;
+use Vendor\Cliente\Util\GrauImportanciaInterface;
 
-
-class ClienteAbstract
+class ClienteAbstract implements EnderecoCobrancaInterface, GrauImportanciaInterface
 {
     protected $nome;
     protected $endereco;
     protected $enderecoCobrar;
     protected $idade;
-    protected $tipo;
-    protected $estrelas;
+    protected $tipo;    
+    protected $grauImportancia;
 
     public function setNome($nome)
     {
@@ -61,14 +62,33 @@ class ClienteAbstract
         return $this->enderecoCobrar;
     }
 
-    public function setEstrelas($estrelas)
+    public function getGrauImportancia()
     {
-        $this->estrelas = $estrelas;
-        return $this;
+        return $this->grauImportancia;
     }
 
-    public function getEstrelas()
+    public function enderecoCobranca($enderecoCobrar)
     {
-        return $this->estrelas;
+        if(empty($enderecoCobrar))
+        {
+            $this->enderecoCobrar = $this->endereco;
+        }
+        else
+        {
+            $this->enderecoCobrar = $enderecoCobrar;
+        }
+
+        return $this->enderecoCobrar;
+    }
+
+    public function grauImportancia($grauImportancia)
+    {
+        $this->grauImportancia = $grauImportancia;
+        return $this->grauImportancia;
+    }
+
+    public function tipoCliente($tipo){
+        $this->tipo = $tipo;
+        return $this->tipo;
     }
 }
