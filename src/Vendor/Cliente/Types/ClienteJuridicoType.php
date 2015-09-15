@@ -14,7 +14,7 @@ use Vendor\Cliente\Util\PJInterface;
 class ClienteJuridicoType extends ClienteAbstract implements PJInterface
 {
     protected $cnpj;
-    
+
     function __construct($nome, $tipo, $cnpj, $grauImportancia, $endereco, $idade, $enderecoCobrar="")
     {
         $this->setNome($nome);

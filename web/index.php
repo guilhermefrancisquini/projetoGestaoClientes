@@ -1,9 +1,5 @@
 <?php
-	define('CLASS_DIR', 'src/');
-	set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
-	//spl_autoload_extensions(".php");
-	spl_autoload_register();
-
+	require_once  __DIR__ . "/../autoload.php";
     use Vendor\Cliente\Types\ClienteType;
 	use Vendor\Cliente\Types\ClienteJuridicoType;
 
@@ -25,8 +21,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>Gestão de Clientes</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script src="js/sorttable.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<script src="assets/js/sorttable.js"></script>
 </head>
 <body>
 <div class="container">
